@@ -17,7 +17,9 @@ Container leadImage(String asset) {
     height: 50,
     decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(35)),
-        image: DecorationImage(image: AssetImage(asset))),
+        image: DecorationImage(image: AssetImage(asset)
+        )
+        ),
   );
 }
 

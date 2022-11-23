@@ -1,16 +1,18 @@
+
+import 'package:contactapp/modal/user_modal.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteProvider with ChangeNotifier{
-  List<int> favoriteUsers = [];
-   get favorites => favoriteUsers;
+  List favoriteUsers = [];
+   List get favorites => favoriteUsers;
 
-    addFavorite (int index){
-    favoriteUsers.add(index);
+    addFavorite (String name, String email){
+    favoriteUsers.add(User(name: name, email: email));
     notifyListeners();
     }
 
-  removeFavorite (int index){
-    favoriteUsers.remove(index);
+  removeFavorite (String name, String email){
+    favoriteUsers.remove(User(name: name, email: email));
     notifyListeners();
   }
 }

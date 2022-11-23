@@ -1,6 +1,7 @@
 
 
 import 'package:contactapp/utility/utility.dart';
+import 'package:contactapp/widgets/favorite_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatefulWidget {
@@ -38,7 +39,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         Padding(
           padding: const EdgeInsets.only(top: 3),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             child: const Text("Favorites"),
           ),
         ),

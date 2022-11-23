@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:contactapp/modal/user_modal.dart';
 import 'package:contactapp/provider/provider.dart';
+import 'package:contactapp/screen/contact_screen.dart';
 import 'package:contactapp/utility/utility.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -77,21 +79,27 @@ return Expanded(
   shrinkWrap: true,
     itemCount: snapshot.data.length,
   
-    itemBuilder: (BuildContext context, int index) {
+    itemBuilder: (context, i) {
   
       return Container(
   
   margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
   
   child: ListTile(
+    onTap: () {
+      Navigator.push(context,
+       CupertinoPageRoute(builder: ((context) {
+         return const ContactScreen();
+       })));
+    },
   selectedTileColor: const Color.fromARGB(255, 152, 212, 240),
     leading: leadImage("assets/images/Josh.png"),
   
-    title: textInfo(snapshot.data[index].name,
+    title: textInfo("${snapshot.data[i].name}",
   
        FontWeight.w400, Colors.black),
   
-       subtitle: textInfo(snapshot.data[index].email,
+       subtitle: textInfo("${snapshot.data[i].email}",
   
        FontWeight.w400, Colors.black),
   
@@ -99,7 +107,7 @@ return Expanded(
   
         onPressed: () {
   
-           myfav.addFavorite(index);
+           myfav.addFavorite("${snapshot.data[i].name}", "${snapshot.data[i].email}");
   
         },
   
